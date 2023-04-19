@@ -23,6 +23,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         self.col_dic = {1:0, 2:0}
         self.tilt_dic = {1:0, 2:0}
         self.result = []
+        
 
     def setup_control(self):
         self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -30,8 +31,8 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         # self.ui.tableWidget.cellClicked().connect(self.handleCellClicked) #記得這個
         self.ui.tableWidget.cellClicked.connect(self.handleCellClicked)    
         self.ui.start_button.clicked.connect(self.start_fun)
-        self.ui.restart_button.setText("Restart")
-        self.ui.restart_button.clicked.connect(self.restart)
+        # self.ui.restart_button.setText("Restart")
+        # self.ui.restart_button.clicked.connect(self.restart)
         
             # self.ui.tableWidget.setHorizontalHeaderLabels()
     def start_fun(self):
@@ -75,10 +76,10 @@ class MainWindow_controller(QtWidgets.QMainWindow):
             if row == col: self.til1_dic[1] += 1
             if row == 2-col: self.til2_dic[1] += 1
 
-            if self.row_dic[row][1] == 3: self.start = False; print("gameover")
-            if self.col_dic[col][1] == 3: self.start = False; print("gameover")
-            if self.til1_dic[1] == 3: self.start = False; print("gameover")
-            if self.til2_dic[1] == 3: self.start = False; print("gameover")
+            if self.row_dic[row][1] == 3: self.start = False; print("gameover"); self.O_win()
+            if self.col_dic[col][1] == 3: self.start = False; print("gameover"); self.O_win()
+            if self.til1_dic[1] == 3: self.start = False; print("gameover"); self.O_win()
+            if self.til2_dic[1] == 3: self.start = False; print("gameover"); self.O_win()
         else:
             self.table[row][col] = 2 
             self.row_dic[row][2] += 1
@@ -86,12 +87,14 @@ class MainWindow_controller(QtWidgets.QMainWindow):
             if row == col: self.til1_dic[2] += 1
             if row == 2-col: self.til2_dic[2] += 1
 
-            if self.row_dic[row][2] == 3: self.start = False; print("gameover")
-            if self.col_dic[col][2] == 3: self.start = False; print("gameover")
-            if self.til1_dic[2] == 3: self.start = False; print("gameover")
-            if self.til2_dic[2] == 3: self.start = False; print("gameover")
+            if self.row_dic[row][2] == 3: self.start = False; print("gameover");self.X_win()
+            if self.col_dic[col][2] == 3: self.start = False; print("gameover");self.X_win()
+            if self.til1_dic[2] == 3: self.start = False; print("gameover");self.X_win()
+            if self.til2_dic[2] == 3: self.start = False; print("gameover");self.X_win()
         
         print(self.til1_dic[1], self.til1_dic[2])
 
-
-
+    def O_win(self):
+        self.ui.result_label.setText("noughts\nwins!")
+    def X_win(self):
+        self.ui.result_label.setText("crosses\nwins!")

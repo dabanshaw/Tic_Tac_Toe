@@ -31,17 +31,17 @@
     </property>
     <row>
      <property name="text">
-      <string>New Row</string>
+      <string/>
      </property>
     </row>
     <row>
      <property name="text">
-      <string>New Row</string>
+      <string/>
      </property>
     </row>
     <row>
      <property name="text">
-      <string>New Row</string>
+      <string/>
      </property>
     </row>
     <column>
@@ -75,9 +75,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>40</y>
-      <width>161</width>
-      <height>161</height>
+      <y>30</y>
+      <width>150</width>
+      <height>150</height>
      </rect>
     </property>
     <property name="font">
@@ -92,13 +92,13 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="restart_button">
+   <widget class="QLabel" name="result_label">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>480</y>
-      <width>160</width>
-      <height>160</height>
+      <y>490</y>
+      <width>150</width>
+      <height>150</height>
      </rect>
     </property>
     <property name="font">
@@ -107,23 +107,13 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(245, 121, 0);</string>
+     <string notr="true">background-color: rgb(138, 226, 52);</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Result</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>290</y>
-      <width>151</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
